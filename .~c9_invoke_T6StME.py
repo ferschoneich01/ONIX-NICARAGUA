@@ -1,5 +1,5 @@
 from cs50 import SQL
-from flask import Flask, render_template, flash, redirect, request, session, url_for
+from flask import Flask, render_template, flash, redirect, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions
@@ -22,7 +22,26 @@ def home():
 #ruta login
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    # limpia id ingresados anteriormente
+    session.clear()
+
+    if request.method == "POST":
+        # Faltan verificaciones de la password y user
+
+        filas = db.execute("SELECT * FROM Users WHERE username = :username",
+                          username=request.form.get("username"))
+
+        if len(filas) != 1 or not check_password_hash(filas[0]["hash"], request.form.get("password")):
+            return render_template("error.html")
+
+        session["user_id"] = filas[0]["user_id"]
+
+        # Redirect user to home page
+        return redirect("/")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("login.html")
 
 # ruta register
 @app.route("/register", methods=["POST", "GET"])
@@ -45,23 +64,16 @@ def register():
             flash("las contraseñas no coinciden :(")
             return render_template("register.html")
 
-        response = db.execute("INSERT INTO Users (username, password) \
-                            VALUES(:username, :password)",
-                            username = request.form.get("username"),
-                            password = generate_password_hash(request.form.get("password")))
+        response = db.execute("INSERT INTO Users(username, passsword) VALUES(:username, :password)",
+                username = request.form.get("password") , password = generate_password_hash(request.form.get("password")))
 
         if not response:
             flash("el usuario ya existe :(")
             return render_template("register.html")
 
-        rows = db.execute("SELECT * FROM users WHERE username = :username", username = request.form.get("username"))
-
-        session["user_id"] = rows[0]["id"]
+        session["user_id"] = response
 
         return redirect("/")
 
     else:
         return render_template("register.html")
-
-if __name__ == '__main__':
-    app.run(debug=True)
