@@ -63,5 +63,10 @@ def register():
     else:
         return render_template("register.html")
 
+# Ruta para el admin de la pagina
+@app.route("/Admin", methods=["POST", "GET"])
+def Admin():
+    return render_template("Admin.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
