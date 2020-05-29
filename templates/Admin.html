@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/static/styles.css" rel="stylesheet">
     <title>Admin | Onix Nicaragua</title>
+    <!-- Estilos de la pagina -->
     <style type= "text/css">
      body{
         padding: 0;
@@ -42,13 +43,13 @@
         right: 0;
         text-align: left;
         padding: 9px;
-        background: skyblue;
+        background: #dfe6e9;
     }
 
     .card-footer input {
         text-align: left;
     }
-    #Admin-form{
+     #Admin-form{
             width:320px;
             height:420px;
             top:50%;
@@ -74,11 +75,13 @@
         }
      </style>
 </head>
+
 <body>
-    <a href="/" color="black">ONIX NICARAUA</a>
+    <a href="/" color="Blue">ONIX NICARAUA</a>
 
     <hr color="black">
     <h4 position="left">Inserte Foto:</h4>
+
     <!-- CONTAINER CLASS TO CENTER THE CARD ELEMENT -->
     <div class="container">
 
@@ -92,11 +95,13 @@
         </div>
 
     </div>
+
+    <!-- Formulario para subir datos de las pulseras a publicar -->
     <div id="Admin-form">
     <form action="/Admin" method="POST">
             <label for="title" style="color:white";>Titulo:</label>
 
-            <input  name= "title" type="text" id="title" placeholder="titulo">
+            <input  name= "titulo" type="text" id="titulo" placeholder="titulo">
 
             <label for="precio" style="color:white";>Precio:</label>
 
@@ -107,6 +112,45 @@
 
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-    <script src="app.js"></script>
+    <script>
+    //Codigo JS para la subida de imagenes a cloudinary
+const imagePreview = document.getElementById('img-preview');
+const imageUploader = document.getElementById('img-uploader');
+const imageUploadbar = document.getElementById('img-upload-bar');
+
+//Direccion de la api para el guardado y key de permiso de cuenta.
+const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dzlbg8ni6/image/upload';
+const CLOUDINARY_UPLOAD_PRESET = 'ss1j77hf';
+
+
+imageUploader.addEventListener('change', async (e) => {
+
+    //console.log(e);
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+    // Send to cloudianry
+    const res = await axios.post(
+        CLOUDINARY_URL,
+        formData,
+        {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+            onUploadProgress (e) {
+                let progress = Math.round((e.loaded * 100.0) / e.total);
+                console.log(progress);
+                imageUploadbar.setAttribute('value', progress);
+            }
+        }
+    );
+    console.log(res);
+    imagePreview.src = res.data.secure_url;
+    console.log(res.data.secure_url);
+});
+
+    </script>
 </body>
 </html>
