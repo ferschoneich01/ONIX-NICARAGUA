@@ -17,12 +17,42 @@ db = SQL("sqlite:///Data.db")
 #ruta principal
 @app.route("/")
 def home():
-    return render_template('Principal.html')
+    rows=db.execute("select * from vista")
+    return render_template("Principal.html",vista=rows)
 
 #ruta login
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    # Forget any user_id
+    session.clear()
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST":
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            flash("must provide username")
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            flash("must provide password")
+
+        # Query database for username
+        rows = db.execute("SELECT * FROM Users WHERE username = :username",
+                          username=request.form.get("username"))
+
+        # Ensure username exists and password is correct
+        if len(rows) != 1 or not check_password_hash(rows[0]["password"], request.form.get("password")):
+            flash("invalid username and/or password")
+
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+
+        # Redirect user to home page
+        return redirect("/")
+
+    else:
+        return render_template("login.html")
 
 # ruta register
 @app.route("/register", methods=["POST", "GET"])
@@ -66,7 +96,25 @@ def register():
 # Ruta para el admin de la pagina
 @app.route("/Admin", methods=["POST", "GET"])
 def Admin():
-    return render_template("Admin.html")
+    if request.method == "POST":
+        db.execute("Insert into vista(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
+        ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+        return redirect("/")
+    else:
+        return render_template("Admin.html")
 
+# Ruta para crear pulseras personalizadas
+@app.route("/personalizada")
+def personalizada():
+    return render_template("Create.html")
+# Cerrar sesion
+@app.route("/logout")
+def logout():
+    # Forget any user_id
+    session.clear()
+    # Redirect user to login form
+    return redirect("/")
+
+#funcion principal
 if __name__ == '__main__':
     app.run(debug=True)
