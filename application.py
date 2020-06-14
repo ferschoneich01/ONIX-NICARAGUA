@@ -107,6 +107,16 @@ def Admin():
 @app.route("/personalizada")
 def personalizada():
     return render_template("Create.html")
+
+@app.route("/buy")
+def buy():
+    rows=db.execute("select * from vista")
+    return render_template("buy.html",vista=rows)
+
+@app.route("/compras")
+def compras():
+    return render_template("compras.html")
+
 # Cerrar sesion
 @app.route("/logout")
 def logout():
@@ -114,6 +124,8 @@ def logout():
     session.clear()
     # Redirect user to login form
     return redirect("/")
+
+
 
 #funcion principal
 if __name__ == '__main__':

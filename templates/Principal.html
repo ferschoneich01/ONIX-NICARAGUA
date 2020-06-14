@@ -8,20 +8,34 @@
     <link href="/static/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:wght@100&family=Pacifico&family=Raleway:wght@100&family=Roboto&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
         <style type= "text/css">
      body{
 	        margin:0;
 	        padding:0;
+			overflow-x:hidden;
+        }
 
+        .Contenedor_principal{
+        	background:white;
+			background-size:64px;
+			width:100%;
+			height:100%;
+			margin:0;
         }
 
         .titulo{
-			font-size:40px;
-			color:white;
-			margin:1px;
-			font-family: 'Dosis', sans-serif;
-			text-align:center;
+        	transform:translate(102%, 80%);
+        	background:transparent;
+			width:300px;
+			height:auto;
+        }
 
+        .titulo p{
+        	text-align:center;
+        	font-family: 'Dosis', sans-serif;
+        	color:white;
+        	font-size:40px;
         }
 
 	table {
@@ -35,218 +49,159 @@
 	}
 	tr:nth-child(even) {background-color: #f2f2f2;}
 
-
-	.wrap{
-		width: 1100px;
-		margin: 50px auto;
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: center;
-		-webkit-justify-content: center;
-		-ms-flex-pack:center;
-		justify-content: center;
-	}
-
-	.tarjeta-wrap{
-		margin: 10px;
-		-webkit-perspective: 800;
-		perspective: 800;
-	}
-
-	.tarjeta{
-		width:300px;
-		height: 380px;
-		background: #F29720;
-		position: relative;
-		-webkit-transform-style: preserve-3d;
-		transform-style: preserve-3d;
-		-webkit-transition: .7s ease;
-		transition: .7s ease;
-		-webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
-		box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
-
-	}
-
-	.adelante, .atras{
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
-	}
-
-	.adelante{
-		width: 100%;
-	}
-
-	.atras{
-		-webkit-transform: rotateY(180deg);
-		transform: rotateY(180deg);
-	    height:100%;
-	    width:100%;
-		padding: 5px;
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: center;
-		-webkit-justify-content: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		-webkit-box-align: center;
-		-webkit-align-items: center;
-		-ms-flex-align: center;
-		align-items:center;
-	    background-image:url(https://img.freepik.com/foto-gratis/concepto-material-madera-textura-papel-pintado-fondo_53876-42925.jpg?size=626&ext=jpg);
-		text-align: left;
-		color: #fff;
-		font-family: open sans;
-	}
-
-	.tarjeta-wrap:hover .tarjeta{
-		-webkit-transform: rotateY(180deg);
-		transform: rotateY(180deg);
-	}
-
-	.card1{
-		background-size: cover;
-	}
-
-	.card1 img{
-	    width:100%;
-	    height:100%;
-	}
-
 	.icon{
 		border-radius:50%;
-		width:50px;
-	    height:50px;
+		width:45px;
+	    height:45px;
 	}
 
 	.buyer{
-		transform:translate(40%, -20%);
-		height:auto;
-		padding:5px;
-
-	}
-	.buy{
-		text-decoration:none;
-		background:white;
-		font-family: 'Dosis', sans-serif;
-		font-size:16px;
-		color:black;
-		width:110px;
-		height:25px;
-		position:absolute;
+		transform:translateX(410px)translateY(90px);
 		border-radius:1px;
+		width:150px;
+		height:auto;
+		background:transparent;
+
 	}
 
-	.buyer .buy a:hover{
+	a{
+		text-decoration:none;
+	}
+
+	.buy a{
+		text-align:center;
+		position:relative;
+		color:black;
+	}
+
+	.buy{
+		text-align:center;
+		padding:7px;
+		font-family: 'Dosis', sans-serif;
+		font-size:15px;
+		height:auto;
+		width:125px;
+
+		background-color:white;
+
+	}
+
+	.buyer .buy:hover{
 		background:gray;
 	}
 
 
+	.slider_principal{
+		height:auto;
+		width:100%;
+		transform:translate(44%, 800%);
+	}
+
+	 .slider_principal img:hover{
+		background:red;
+	}
+
+	h2{
+		text-align:center;
+	}
+
     </style>
-</head>
+</head
 
 <body>
-    <div class="desing">
+	<div class="Contenedor_principal">
+		<header class="desing">
+	    	<img src="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg"  class="icon"  align="left">
 
-    	<img src="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg"  class="icon" height="33"  align="left">
+	        {% if session.user_id == 1 %}
+	        <nav class="navegacion">
+			    <ul class="menu">
+				    <li><a href="#">INICIO</a>
+					    <ul class="submenu">
+							<li><a href="/logout">Logout</a></li>
+							<li><a href="#">Perfil</a></li>
+						</ul>
+					</li>
+					 <li>
+					    <a href="/Admin">ADMIN</a></a>
+					</li>
+					 <li>
+					    <a href="/personalizada">CREAR</a>
+					</li>
+					<li>
+						<a href="/compras"><img  src="/static/car.png"></a>
+					</li>
+			    </ul>
+		    </nav>
+	        {% else %}
+				{% if session.user_id%}
+	        <nav class="navegacion">
+			    <ul class="menu">
+				    <li><a href="#">INICIO</a>
+					    <ul class="submenu">
+					    	<li><a href="/login">log in</a></li>
+					    	<li><a href="/register">register</a></li>
+							<li><a href="/logout">Logout</a></li>
+							<li><a href="#">Perfil</a></li>
+						</ul>
+					</li>
+					 <li>
+					    <a href="/personalizada">CREAR</a>
+					</li>
+					<li>
+						<a href="/compras"><img  src="/static/car.png"></a>
+					</li>
+			    </ul>
+		    </nav>
+		    	{% else %}
+			<nav class="navegacion">
+			    <ul class="menu">
+				    <li><a href="#">INICIO</a>
+					    <ul class="submenu">
+					    	<li><a href="/login">log in</a></li>
+					    	<li><a href="/register">register</a></li>
+						</ul>
+					</li>
+					 <li>
+					    <a href="/personalizada">CREAR</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/OnixNica"><img src="/static/facebook_logo.png"></a>
+					</li>
+			    </ul>
+		    </nav>
+				{% endif %}
+	        {% endif %}
+			<div class="titulo"><p>ONIX NICARAGUA</p></div>
+	        <div class="buyer">
+				<ul class="buy">
+					<a href="/buy">BUY NOW!</a>
+				</ul>
+	    	</div>
 
-        {% if session.user_id == 1 %}
-        <nav class="navegacion">
-		    <ul class="menu">
-			    <li><a href="#">INICIO</a>
-				    <ul class="submenu">
-						<li><a href="/logout">Logout</a></li>
-						<li><a href="#">Perfil</a></li>
-					</ul>
-				</li>
-				 <li>
-				    <a href="/Admin">ADMIN</a></a>
-				</li>
-				 <li>
-				    <a href="/personalizada">CREAR</a>
-				</li>
-				<li height="75px">
-					<img src="/static/car.png">
-				</li>
-		    </ul>
-	    </nav>
-        {% else %}
-			{% if session.user_id%}
-        <nav class="navegacion">
-		    <ul class="menu">
-			    <li><a href="#">INICIO</a>
-				    <ul class="submenu">
-				    	<li><a href="/login">log in</a></li>
-				    	<li><a href="/register">register</a></li>
-						<li><a href="/logout">Logout</a></li>
-						<li><a href="#">Perfil</a></li>
-					</ul>
-				</li>
-				 <li>
-				    <a href="/personalizada">CREAR</a>
-				</li>
-				<li height="75px">
-					<img src="/static/car.png">
-				</li>
-		    </ul>
-	    </nav>
-	    	{% else %}
-	    <nav class="navegacion">
-		    <ul class="menu">
-			    <li><a href="#">INICIO</a>
-				    <ul class="submenu">
-				    	<li><a href="/login">log in</a></li>
-				    	<li><a href="/register">register</a></li>
-					</ul>
-				</li>
-				 <li>
-				    <a href="/personalizada">CREAR</a>
-				</li>
-				<li height="75px">
-					<img src="/static/car.png">
-				</li>
-		    </ul>
-	    </nav>
-			{% endif %}
-        {% endif %}
-
-        <p class="titulo">ONIX NICARAGUA</p>
-        <br>
-        <div class="buyer">
-			<ul class="buy">
-				<a href="buy" class="buy">BUY NOW!</a>
-			</ul>
-    	</div>
-    </div>
-    {%for vista in vista%}
-    <div class="wrap">
-		<div class="tarjeta-wrap">
-			<div class="tarjeta">
-				<div class="adelante card1">
-				    <img src="{{ vista.foto }}">
-				</div>
-				<div class="atras">
-				       <p>{{ vista.nombre}}
-                          {{ vista.descripcion}}
-                       Precio: C${{ vista.precio}}
-                       <button class="botonI" type="submit">Comprar</button>
-                       </p>
-			    </div>
+	    	<div class="slider_principal">
+	    		<img src="/static/izquierda_redondo.png">
+	    		<img src="/static/derecha_redondo.png">
+	    	</div>
+    	</header>
+	 	<section>
+	 		<br>
+	 		<h2>¡NEW COLECCTION!</h2>
+			<div class="slider">
+				<ul>
+					<li><img src="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592021124/utva4eu998vdjcp4r9uu.jpg" alt=""></li>
+					<li><img src="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591677697/ejemh5j2auy2e9nb8mjr.jpg" alt=""></li>
+					<li><img src="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592018164/xwgh0vpfwd9lefdxnfh0.jpg" alt=""></li>
+				</ul>
 			</div>
-		</div>
-        <br>
-    </div>
+			<br>
+			<h2>STYLE OF THE DAY</h2>
+			<div class="style_day">
+				<img src="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592021452/e9wydum7vtgxws65ixf7.jpg" alt="">
+			</div>
 
-    {%endfor%}
-
+		</section>
+	</div>
 </body>
 
 </html>

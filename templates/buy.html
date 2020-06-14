@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy | Onix Nicaragua</title>
+    <link href="/static/styles.css" rel="stylesheet">
+    <style type="text/css">
+
+        td{
+            width:30%;
+            height:100%;
+            min-height:400px;
+            max-height:230px;
+        }
+
+        .info_buy{
+            text-align:center;
+            border:2px solid black;
+            background:white;
+        }
+
+        header{
+            padding:10px;
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+    {%for vista in vista%}
+        <table class="publicacion">
+          <tr>
+            <td><img src="{{ vista.foto }}"></td>
+            <td class="info_buy"><h2>{{ vista.nombre}}</h2>
+                <p>{{ vista.descripcion}}</p>
+                <button href="#" type="submit">Buy</button>
+            </td>
+          </tr>
+        </table>
+        <br>
+    {%endfor%}
+    </header>
+
+</body>
+</html>
