@@ -4,6 +4,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions
 from werkzeug.security import check_password_hash, generate_password_hash
+from funciones import login_required
 
 app = Flask(__name__)
 
@@ -97,23 +98,43 @@ def register():
 @app.route("/Admin", methods=["POST", "GET"])
 def Admin():
     if request.method == "POST":
-        db.execute("Insert into vista(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
-        ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
-        return redirect("/")
+        category = request.form.get("category")
+
+        if category == "Parejas":
+            db.execute("Insert into vista(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
+            ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+
+        elif category == "Caballeros":
+            db.execute("Insert into caballero(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
+            ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+
+        elif category == "Damas":
+            db.execute("Insert into damas(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
+            ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+
+        elif category == "Otros":
+            db.execute("Insert into otros(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
+            ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+
     else:
         return render_template("Admin.html")
 
 # Ruta para crear pulseras personalizadas
-@app.route("/personalizada")
+@app.route("/personalizada",methods=["GET", "POST"])
+@login_required
 def personalizada():
     return render_template("Create.html")
 
-@app.route("/buy")
+@app.route("/buy",methods=["GET", "POST"])
 def buy():
     rows=db.execute("select * from vista")
-    return render_template("buy.html",vista=rows)
+    filas=db.execute("select * from caballero")
+    casillas=db.execute("select * from damas")
+    celdas=db.execute("select * from otros")
+    return render_template("buy.html",vista=rows,caballero=filas,damas=casillas,otros=celdas)
 
-@app.route("/compras")
+@app.route("/compras",methods=["GET", "POST"])
+@login_required
 def compras():
     return render_template("compras.html")
 
@@ -124,8 +145,6 @@ def logout():
     session.clear()
     # Redirect user to login form
     return redirect("/")
-
-
 
 #funcion principal
 if __name__ == '__main__':

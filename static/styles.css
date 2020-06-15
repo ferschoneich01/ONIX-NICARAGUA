@@ -352,28 +352,30 @@
 
     /*=========================*/
     .publicacion{
-        float:none;
-		background:white;
-		margin:10px;
-		width:60%;
-		padding:20px;
-		height:60%;
+        margin:2px;
+		width:250px;
+		height:230px;
 	}
+
+
+    #navega li{
+        float:left;
+        display: inline;
+    }
+    #navega ul{
+        list-style-type:none;
+    }
 
     .publicacion img{
 		width:100%;
 		height:100%;
-		max-height:400px;
-		min-height:230px;
         border:1px solid black;
 	}
 
-	.publicacion .info{
-		float:right;
-		width:50%;
-		height:90%;
+	.info_buy{
+		width:250px;
+		height:230px;
 		border:2px solid black;
-		box-sizing: border-box;
 	}
 
 	.info p{
@@ -401,7 +403,7 @@
         display:flex;
         padding:0;
         width:300%;
-        animation:cambio 12s infinite;
+        animation:cambio 10s infinite;
         animation-direction:alternate;
         animation-timing-function: ease-in;
     }
@@ -414,6 +416,7 @@
     .slider img{
         width:100%;
         height:400px;
+
     }
 
     @keyframes cambio{
@@ -432,7 +435,7 @@
 
     .style_day{
         margin:auto;
-        width:40%;
+        width:35%;
         height:500px;
         border:30px solid rgba(226,226,226,1);
     }
@@ -441,3 +444,17 @@
         width:100%;
         height:100%;
     }
+
+    /*sliders para publicaciones*/
+
+    .slider_public{
+        border:2px solid black;
+        width:600px;
+        height:260px;
+        margin:auto;
+        background:gray;
+        overflow-y: scroll;
+        overflow-x:hidden;
+
+    }
+
