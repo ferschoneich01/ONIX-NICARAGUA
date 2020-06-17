@@ -1,117 +1,120 @@
 
-        #parte1 {
-            width:320px;
-            height:420px;
-            top:50%;
-            left:50%;
-            position:absolute;
-            transform:translate(-50%, -50%);
-            box-sizing: border-box;
-            padding:70px 30px;
-            background-color: black;
-        }
+    #parte1 {
+        width:320px;
+        height:420px;
+        top:50%;
+        left:50%;
+        position:absolute;
+        transform:translate(-50%, -50%);
+        box-sizing: border-box;
+        padding:70px 30px;
+        background-color: black;
+    }
 
-        #parte1 .avatar{
-            width:100px;
-            height:100px;
-            border-radius:50%;
-            position:absolute;
-            top:-60px;
-            left:calc(50% - 50px);
-        }
+    #parte1 .avatar{
+        width:100px;
+        height:100px;
+        border-radius:50%;
+        position:absolute;
+        top:-60px;
+        left:calc(50% - 50px);
+    }
 
-        #parte1 input{
-            width:100%;
-            margin-bottom:20px;
+    #parte1 input{
+        width:100%;
+        margin-bottom:20px;
 
-        }
+    }
 
-        #parte1 label{
-            margin:0;
-            padding:0;
-            font-weight:bold;
-            display:block;
+    #parte1 label{
+        margin:0;
+        padding:0;
+        font-weight:bold;
+        display:block;
 
-        }
-        .botonIni{
-            border:none;
-            outline:none;
-            height:40px;
-            background:red;
-            color:white;
-            font-size:18px;
-            border-radius:20px;
-        }
-        .botonIni:hover{
-            background-color:  #ff0080;
-        }
+    }
+    .botonIni{
+        border:none;
+        outline:none;
+        height:40px;
+        background:red;
+        color:white;
+        font-size:18px;
+        border-radius:20px;
+    }
+
+    .botonIni:hover{
+        background-color:  #ff0080;
+    }
 
         #parte1 input[type="text"],
-        #parte1 input[type="password"]{
-            border:none;
-            border-bottom:1px solid white;
-            background: transparent;
-            outline: none;
-            height:40px;
-            color:white;
-            font-size:16px;
-        }
-        #parte2 {
-            margin:20px;
-            padding:10px;
-            background-color:gray;
-            text-align:right;
-        }
-        .borde-redondo {
-            border: #000 solid 2px;
-            border-radius: 10px;
-            outline:none;
+    #parte1 input[type="password"]{
+        border:none;
+        border-bottom:1px solid white;
+        background: transparent;
+        outline: none;
+        height:40px;
+        color:white;
+        font-size:16px;
+    }
+    #parte2 {
+        margin:20px;
+        padding:10px;
+        background-color:gray;
+        text-align:right;
+    }
+    .borde-redondo {
+        border: #000 solid 2px;
+        border-radius: 10px;
+        outline:none;
 
-        }
+    }
 
-        #parte1 a{
-            text-decoration:none;
-            font-size:12px;
-            line-height:20px;
-            color:darkgrey;
-        }
+    #parte1 a{
+        text-decoration:none;
+        font-size:12px;
+        line-height:20px;
+        color:darkgrey;
+    }
 
-        #parte1 a:hover{
-            color:white;
-        }
+    #parte1 a:hover{
+        color:white;
+    }
 
-        .boton {
-            border: #000 solid 1px;
-            border-radius: 10px;
-            background-color: red;
-            color: white;
-            cursor: pointer;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            transition: 0.4s;
-            outline:none;
-        }
-        .botonI{
-            border: #000 solid 1px;
-            border-radius: 10px;
-            background-color: gray;
-            color: white;
-            cursor: pointer;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            transition: 0.4s;
-            outline:none;
-        }
-        .desing{
-            background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591679098/u31dbuccy49bcyoml9gh.jpg);
-            background-size:100% 100%;
-            background-repeat:no-repeat;
-            margin:0;
-            width:100%;
-            height:560px;
-            padding:30px;
-        }
+    .boton {
+        border: #000 solid 1px;
+        border-radius: 10px;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        transition: 0.4s;
+        outline:none;
+    }
+    .botonI{
+        border: #000 solid 1px;
+        border-radius: 10px;
+        background-color: gray;
+        color: white;
+        cursor: pointer;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        transition: 0.4s;
+        outline:none;
+    }
+    .desing{
+        background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591679098/u31dbuccy49bcyoml9gh.jpg);
+        background-size:100% 100%;
+        background-repeat:no-repeat;
+        margin:0;
+        width:100%;
+        height:560px;
+        padding:30px;
+    }
 
+    /*==================================*/
+    /*DISENO DE CREATE*/
     .content{
         margin:auto;
         perspective:3000px;
@@ -271,9 +274,6 @@
 
     }
 
-
-
-
     ul{
     	list-style: none;
     }
@@ -286,7 +286,90 @@
         -webkit-box-sizing: border-box;
 	    -moz-box-sizing: border-box;
 	    box-sizing: border-box;
+	    margin:0;
+	    padding:0;
+		overflow-x:hidden;
+		overflow-y:visible;
     }
+
+        .Contenedor_principal{
+    	background:white;
+		background-size:64px;
+		width:100%;
+		height:100%;
+		margin:0;
+    }
+
+    .titulo{
+        transform:translate(102%, 80%);
+        background:transparent;
+		width:300px;
+		height:auto;
+    }
+
+    .titulo p{
+        text-align:center;
+       	font-family: 'Dosis', sans-serif;
+        color:white;
+        font-size:40px;
+    }
+
+
+	.icon{
+		border-radius:50%;
+		width:45px;
+	    height:45px;
+	}
+
+	.buyer{
+		transform:translateX(410px)translateY(90px);
+		border-radius:1px;
+		width:150px;
+		height:auto;
+		background:transparent;
+
+	}
+
+	a{
+		text-decoration:none;
+	}
+
+	.buy a{
+		text-align:center;
+		position:relative;
+		color:black;
+	}
+
+	.buy{
+		text-align:center;
+		padding:7px;
+		font-family: 'Dosis', sans-serif;
+		font-size:15px;
+		height:auto;
+		width:125px;
+
+		background-color:white;
+
+	}
+
+	.buyer .buy:hover{
+		background:gray;
+	}
+
+
+	.slider_principal{
+		height:auto;
+		width:100%;
+		transform:translate(44%, 800%);
+	}
+
+	 .slider_principal img:hover{
+		background:red;
+	}
+
+	section h2{
+		text-align:center;
+	}
 
 
     .navegacion{
@@ -351,13 +434,29 @@
     }
 
     /*=========================*/
+    /*ESTILOS DE LAS PUBLICACIONES ruta BUY*/
+
     .publicacion{
         margin:2px;
 		width:250px;
 		height:230px;
 	}
 
+    .info_buy{
+            text-align:center;
+            border:2px solid black;
+            background:white;
+    }
 
+    .content_buy{
+        padding:10px;
+        width:100%;
+        overflow-x:hidden;
+    }
+
+    .content_buy h2{
+        text-align:center;
+    }
     #navega li{
         float:left;
         display: inline;
@@ -391,6 +490,8 @@
 	.publicacion .btn_buy{
 		position:fixed;
 	}
+
+	/*SECTION DE LA PAGINA PRINCIPAL*/
     /*SLIDER*/
 
     .slider{
@@ -456,5 +557,74 @@
         overflow-y: scroll;
         overflow-x:hidden;
 
+    }
+
+    /*ADMIN STYLOS*/
+    .container {
+        display: flex;
+        justify-content:left;
+        align-items: left;
+        background: transparent;
+        height: 100%;
+    }
+
+    .container img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card {
+        border: 1px solid #333;
+        height: 30rem;
+        width: 20rem;
+        position: relative;
+    }
+
+    .card-footer {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        text-align: left;
+        padding: 9px;
+        background: #dfe6e9;
+    }
+
+    .card-footer input {
+        text-align: left;
+    }
+     #Admin-form{
+            width:320px;
+            height:480px;
+            top:50%;
+            left:50%;
+            position:absolute;
+            transform:translate(-50%, -50%);
+            box-sizing: border-box;
+            padding:70px 30px;
+            background-color: skyblue;
+            margin-top:5px;
+    }
+     #Admin-form input{
+            width:100%;
+            margin-bottom:20px;
+
+        }
+
+    #Admin-form label{
+        margin:0;
+        padding:0;
+        font-weight:bold;
+        display:block;
+
+    }
+
+    textarea{
+        resize:none;
+        width:100%;
+        font-size:12;
     }
 
