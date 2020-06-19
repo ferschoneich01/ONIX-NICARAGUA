@@ -1,65 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/static/styles.css" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg">
+
     <title>Admin | Onix Nicaragua</title>
+    <font face="Berlin Sans FB">
+      <div class="text-light" style="background-color:#0a868e">
+        <br>
+        <center><h1>ONIX Nicaragua</h1></center>
+        <br>
+     </div>
+    </font>
+
+
+    <br>
+
+
 </head>
 
-<body>
-    <a href="/" color="Blue">ONIX NICARAUA</a>
+<body style="background-color:#f6f1de">
 
-    <hr color="black">
     <!-- CONTAINER CLASS TO CENTER THE CARD ELEMENT -->
     <div class="container">
 
-        <!-- CARD ELEMENT -->
-        <div class="card">
-            <img id="img-preview">
-            <div class="card-footer">
-                <input type="file" id="img-uploader">
-                <progress id="img-upload-bar" value="0" max="100" style="width: 100%"></progress>
+        <div class="row">
+
+          <div class="col-sm-8">
+            <div class="card">
+              <span class="border-0 rounded">
+               <h5 class="card-header text-center text-light" style="background-color:#0a868e">Imagen de pulsera</h5>
+
+               <div class="card-body">
+
+                <div class="form-group">
+                    <center><img id="img-preview"></center>
+                    <input type="file" class="form-control-file" id="img-uploader">
+                    <progress id="img-upload-bar" value="0" max="100" style="width: 100%"></progress>
+                  </div>
+
+              </div>
+              </span>
             </div>
+          </div>
+
+        <!-- Formulario para subir datos de las pulseras a publicar -->
+          <div class="col-sm-4">
+            <div class="card">
+            <span class="border-0 rounded">
+             <h5 class="card-header text-center text-light" style="background-color:#0a868e">Información de la pulsera</h5>
+              <div class="card-body">
+                  <form>
+                      <div class="form-group">
+                        <label for="nombre">Título:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                      </div>
+
+                      <label for="precio">Precio:</label>
+                      <div class="input-group mb-3">
+
+                       <div class="input-group-prepend">
+                        <span class="input-group-text">C$</span>
+                       </div>
+
+                       <input type="text" class="form-control" id="precio" name="precio" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Categoría:</label>
+                        <select class="form-control" name="category" id="category">
+                          <option>Parejas</option>
+                          <option>Caballeros</option>
+                          <option>Damas</option>
+                          <option>Otros</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea class="form-control" name= "descripcion"  id="descripcion" rows="3" required></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="foto">URL Foto:</label>
+                        <input type="text" class="form-control" id="foto" name="foto" required>
+                      </div>
+                    </form>
+
+                    <center> <button type="submit" class="btn btn-muted text-light" style="background-color:#0a868e">Publicar</button></center>
+
+
+              </div>
+              </span>
+            </div>
+          </div>
         </div>
 
+
     </div>
 
-    <!-- Formulario para subir datos de las pulseras a publicar -->
-    <div id="Admin-form">
-    <form action="/Admin" method="POST">
-            <label for="nombre" style="color:white";>Titulo:</label>
+    <!-- Scripts -->
 
-            <input  name= "nombre" type="text" id="nombre" placeholder="titulo">
 
-            <label for="precio" style="color:white";>Precio:</label>
-
-            <input  name= "precio" type="text" id="precio" placeholder="precio">
-
-            <label for="descripcion" style="color:white";>Descripcion:</label>
-
-            <textarea name= "descripcion" type="text" id="descripcion" placeholder="descripcion"></textarea>
-
-            <label for="category" style="color:white";>Categoria:</label>
-
-            <select name="category" id="category" >
-                <option>Parejas</option>
-                <option>Caballeros</option>
-                <option>Damas</option>
-                <option>Otros</option>
-            </select>
-            <hr color="transparent">
-            <label for="foto" style="color:white";>Url foto:</label>
-
-            <input  name= "foto" type="text" id="foto" placeholder="url foto">
-
-            <button  class="botonIni" type="submit">Publicar</button></button>
-    </div>
-
-    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="/static/admin.js"></script>
+
 </body>
 </html>
