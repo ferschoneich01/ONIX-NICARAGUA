@@ -13,9 +13,7 @@
 <body>
 	<div class="Contenedor_principal">
 		<header class="desing">
-	    	<img src="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg"  class="icon"  align="left">
-
-	        {% if session.user_id == 1 %}
+	        {% if session.user_id == 1 or session.user_id == 6 %}
 	        <nav class="navegacion">
 			    <ul class="menu">
 				    <li><a href="#">INICIO</a>
@@ -68,22 +66,17 @@
 					    <a href="/personalizada">CREAR</a>
 					</li>
 					<li>
-						<a href="https://www.facebook.com/OnixNica"><img src="/static/facebook_logo.png"></a>
+					    <a href="/about">ABOUT</a>
 					</li>
 			    </ul>
 		    </nav>
 				{% endif %}
 	        {% endif %}
-			<div class="titulo"><p>ONIX NICARAGUA</p></div>
+			<div class="titulo"><h1>ONIX NICARAGUA</h1></div>
 	        <div class="buyer">
 				<ul class="buy">
 					<a href="/buy">BUY NOW!</a>
 				</ul>
-	    	</div>
-
-	    	<div class="slider_principal">
-	    		<img src="/static/izquierda_redondo.png">
-	    		<img src="/static/derecha_redondo.png">
 	    	</div>
     	</header>
 	 	<section>

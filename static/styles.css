@@ -292,26 +292,30 @@
 		overflow-y:visible;
     }
 
-        .Contenedor_principal{
+    .Contenedor_principal{
     	background:white;
-		background-size:64px;
 		width:100%;
 		height:100%;
 		margin:0;
     }
 
     .titulo{
-        transform:translate(102%, 80%);
-        background:transparent;
+        transform:translate(110%, 130%);
 		width:300px;
 		height:auto;
     }
 
-    .titulo p{
-        text-align:center;
-       	font-family: 'Dosis', sans-serif;
-        color:white;
-        font-size:40px;
+    .titulo h1{
+            animation: animate 5s linear infinite;
+            background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592511125/zhj93myxf9hhjdp754rh.jpg);
+            background-repeat:repeat-x;
+            -webkit-background-clip:text;
+            text-align:center;
+            background-size:100% 100%;
+
+            font-family:arial;
+            font-size:35px;
+            color:rgba(225,225,225,.1);
     }
 
 
@@ -373,13 +377,15 @@
 
 
     .navegacion{
-    	width:auto;
-    	background: red;
-    	transform:translate(60% , 0%);
+    	width:100%;
+    	float:right;
     	height:auto;
+    	margin:0;
+    	transform:calc(auto, 1%);
     }
     .menu{
-        float:right;
+        width:100%;
+        float:none;
     }
     .menu img:hover{
         border-radius:50%;
@@ -414,7 +420,7 @@
         animation:girar 1s;
     	position:relative;
     	background: black;
-    	width:60%;
+    	width:20%;
     	visibility: hidden;
     	opacity: 0;
     	transition: opacity 1s;
@@ -490,6 +496,19 @@
 	.publicacion .btn_buy{
 		position:fixed;
 	}
+
+	.contenedor_buy{
+	    visibility:hidden;
+	}
+
+    .slider_public button:active{
+        visibility:visible;
+        background:gray;
+	    width:320px;
+	    height:480px;
+	    float:none;
+    }
+
 
 	/*SECTION DE LA PAGINA PRINCIPAL*/
     /*SLIDER*/
@@ -628,3 +647,87 @@
         font-size:12;
     }
 
+    article{
+        margin:0;
+        padding:0;
+        background:darkgray;
+    }
+    /* Responsive */
+
+    @media screen and (max-width: 420px){
+        .desing{
+            background:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592508020/bkukfelyfy5mzu4co6bw.jpg);
+            background-size:100% 100%;
+        }
+
+        .titulo{
+            transform:translate(-5%, 500%);
+            margin:0;
+            padding:0;
+
+        }
+
+
+        .titulo h1{
+            animation: animate 5s linear infinite;
+            background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592511125/zhj93myxf9hhjdp754rh.jpg);
+            background-repeat:repeat-x;
+            -webkit-background-clip:text;
+            text-align:center;
+            background-size:100% 100%;
+
+            font-family:arial;
+            font-size:35px;
+            color:rgba(225,225,225,.1);
+        }
+
+
+        .buyer{
+            transform:translateX(50%)translateY(1000%);
+        }
+
+        .navegacion{
+            transform:translateX(0%);
+            transform:translateY(0);
+            font-size:12px;
+            width:100%;
+            height:12px;
+
+        }
+        .menu{
+            width:100%;
+            height:auto;
+        }
+
+
+        body{
+            width:100%;
+        }
+
+        .icon{
+            visibility:hidden;
+        }
+
+        .slider_public{
+            width:90%;
+        }
+
+        .style_day{
+            width:80%;
+        }
+
+        .slider{
+            width:87%;
+        }
+    }
+
+    @keyframes animate{
+            0%{
+                background-position:left 0px top 0px;
+            }
+
+            40%{
+                background-position:left 400px top 0px;
+            }
+
+    }

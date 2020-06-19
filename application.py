@@ -146,6 +146,10 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
+@app.route("/buy_start",methods=["GET", "POST"])
+def buy_start():
+    return render_template("buy_start.html")
+
 #funcion principal
 if __name__ == '__main__':
     app.run(debug=True)

@@ -11,6 +11,9 @@
 </head>
 <body>
     <header class="content_buy">
+    <main class="contenedor_buy">
+        {% block main %}{% endblock %}
+    </main>
     <h2>ONIX PAREJAS</h2>
     <div class="slider_public">
         <ul id="navega">
@@ -24,7 +27,7 @@
                 <div class="info_buy">
                     <h2>{{ vista.nombre}}</h2>
                     <p>{{ vista.descripcion}}</p>
-                    <button href="#" type="submit">Buy</button>
+                    <button href="/buy_start" type="submit">Buy</button>
                 </div>
             </li>
         {% endfor %}
@@ -43,7 +46,7 @@
                 <div class="info_buy">
                     <h2>{{ caballero.nombre}}</h2>
                     <p>{{ caballero.descripcion}}</p>
-                    <button href="#" type="submit">Buy</button>
+                    <button href="/buy_start" type="submit">Buy</button>
                 </div>
             </li>
         {% endfor %}
@@ -62,7 +65,7 @@
                 <div class="info_buy">
                     <h2>{{ damas.nombre}}</h2>
                     <p>{{ damas.descripcion}}</p>
-                    <button href="#" type="submit">Buy</button>
+                    <button href="/buy_start" type="submit">Buy</button>
                 </div>
             </li>
         {% endfor %}
@@ -81,7 +84,7 @@
                 <div class="info_buy">
                     <h2>{{ otros.nombre}}</h2>
                     <p>{{ otros.descripcion}}</p>
-                    <button href="#" type="submit">Buy</button>
+                    <button href="/buy_start" type="submit">Buy</button>
                 </div>
             </li>
         {% endfor %}
