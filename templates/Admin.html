@@ -54,7 +54,7 @@
             <span class="border-0 rounded">
              <h5 class="card-header text-center text-light" style="background-color:#0a868e">Información de la pulsera</h5>
               <div class="card-body">
-                  <form>
+                  <form method="POST">
                       <div class="form-group">
                         <label for="nombre">Título:</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -86,11 +86,12 @@
 
                       <div class="form-group">
                         <label for="foto">URL Foto:</label>
-                        <input type="text" class="form-control" id="foto" name="foto" required>
+                        <input type="text" class="form-control" id="foto" name="foto"  value="" required>
                       </div>
+                      <center> <button type="submit" class="btn btn-muted text-light" style="background-color:#0a868e">Publicar</button></center>
                     </form>
 
-                    <center> <button type="submit" class="btn btn-muted text-light" style="background-color:#0a868e">Publicar</button></center>
+
 
 
               </div>

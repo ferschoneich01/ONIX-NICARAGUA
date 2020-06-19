@@ -33,5 +33,5 @@
         console.log(res);
         imagePreview.src = res.data.secure_url;
         console.log(res.data.secure_url);
-        alert("URL FOTO:\n"+res.data.secure_url);
+        document.getElementById("foto").value = res.data.secure_url;
     });

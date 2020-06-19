@@ -126,6 +126,7 @@ def personalizada():
     return render_template("Create.html")
 
 @app.route("/buy",methods=["GET", "POST"])
+@login_required
 def buy():
     rows=db.execute("select * from vista")
     filas=db.execute("select * from caballero")
