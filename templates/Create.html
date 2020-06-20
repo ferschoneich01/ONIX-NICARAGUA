@@ -7,23 +7,24 @@
     <title>Personalizada | Onix Nicaragua</title>
     <link href="/static/styles.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg">
-    <style>
-    body{
-        margin:0;
-        background: #333;
-        display:flex;
-        min-height: 100vh;
-        }
-    </style>
 </head>
 <body>
+    <section class="contenedor-pulsera">
     <div class="desing-create">
 
         <a href="/" color="white">Diseño personalizado</a>
         <hr>
-        <p class="text">
-            CREA TUS DISEÑOS PERSONALIZADOS
+        <p>
+            Crea tus disenos<br>
+            de la mejor manera
         </p>
+        <div class="selector">
+             {% for piedras in piedras %}
+                 <div class="contenedor-piedra">
+                     <img src="{{ piedras.foto}}" class="card-img-top img-thumbnail" alt="...">
+                 </div>
+             {% endfor %}
+        </div>
     </div>
 
     <!--Pulsera 3D -->
@@ -58,10 +59,43 @@
             <div class="cara back-piedra" id="siete-2"></div>
             <div class="cara back-piedra" id="siete-3"></div>
 
+            <div class="cara back-piedra" id="nueve"></div>
+            <div class="cara back-piedra" id="nueve-2"></div>
+            <div class="cara back-piedra" id="nueve-3"></div>
+
+            <div class="cara back-piedra" id="dies"></div>
+            <div class="cara back-piedra" id="dies-2"></div>
+            <div class="cara back-piedra" id="dies-3"></div>
+
+            <div class="cara back-piedra" id="once"></div>
+            <div class="cara back-piedra" id="once-2"></div>
+            <div class="cara back-piedra" id="once-3"></div>
+
+            <div class="cara back-piedra" id="doce"></div>
+            <div class="cara back-piedra" id="doce-2"></div>
+            <div class="cara back-piedra" id="doce-3"></div>
+
+            <div class="cara back-piedra" id="trese"></div>
+            <div class="cara back-piedra" id="trese-2"></div>
+            <div class="cara back-piedra" id="trese-3"></div>
+
+            <div class="cara back-piedra" id="catorse"></div>
+            <div class="cara back-piedra" id="catorse-2"></div>
+            <div class="cara back-piedra" id="catorse-3"></div>
+
+            <div class="cara back-piedra" id="quince"></div>
+            <div class="cara back-piedra" id="quince-2"></div>
+            <div class="cara back-piedra" id="quince-3"></div>
+
+            <div class="cara back-piedra" id="diesiseis"></div>
+            <div class="cara back-piedra" id="diesiseis-2"></div>
+            <div class="cara back-piedra" id="diesiseis-3"></div>
+
             <div class="cara back-dije" id="ocho"></div>
 
 
         </div>
     </div>
+    </section>
 </body>
 </html>

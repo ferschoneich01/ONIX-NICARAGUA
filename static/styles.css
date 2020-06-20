@@ -122,8 +122,8 @@
         border-radius:50%;
     }
     .circulo{
-        width:50px;
-        height:50px;
+        width:35px;
+        height:35px;
         position:relative;
         transform-style:preserve-3d;
         animation: girar 5s infinite ;
@@ -135,7 +135,7 @@
 
     .back-dije{
 
-        background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591298446/t4ryvhkqzsot4r6p4lxv.jpg);
+        background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592625830/dosq1uw1rlxnyjztiduf.jpg);
 
     }
     @keyframes girar{
@@ -259,6 +259,130 @@
 
         transform:translateX(-80px)translateZ(-80px)rotateZ(90deg);
 
+    }
+
+    #nueve{
+
+        transform:translateX(-42px)translateZ(-93px);
+
+    }
+    #nueve-2{
+
+        transform:translateX(-42px)translateZ(-93px)rotateY(90deg);
+
+    }
+    #nueve-3{
+
+        transform:translateX(-42px)translateZ(-93px)rotateZ(90deg);
+
+    }
+
+    #dies{
+
+        transform:translateX(42px)translateZ(-93px);
+
+    }
+    #dies-2{
+
+        transform:translateX(42px)translateZ(-93px)rotateX(90deg);
+
+    }
+    #dies-3{
+
+        transform:translateX(42px)translateZ(-93px)rotateY(90deg);
+
+    }
+
+    #once{
+
+        transform:translateX(42px)translateZ(93px);
+
+    }
+    #once-2{
+
+        transform:translateX(42px)translateZ(93px)rotateX(90deg);
+
+    }
+    #once-3{
+
+        transform:translateX(42px)translateZ(93px)rotateY(90deg);
+
+    }
+
+    #doce{
+
+        transform:translateX(-42px)translateZ(93px);
+
+    }
+    #doce-2{
+
+        transform:translateX(-42px)translateZ(93px)rotateX(90deg);
+
+    }
+    #doce-3{
+
+        transform:translateX(-42px)translateZ(93px)rotateY(90deg);
+
+    }
+
+    #trese{
+
+         transform: translateX(-92px)translateZ(36px) rotateY(90deg) ;
+    }
+
+    #trese-2{
+
+         transform: translateX(-92px)translateZ(36px) rotateZ(90deg);
+    }
+
+    #trese-3{
+
+         transform: translateX(-92px)translateZ(36px) rotateX(90deg);
+    }
+
+    #catorse{
+
+         transform: translateX(92px)translateZ(36px) rotateY(90deg) ;
+    }
+
+    #catorse-2{
+
+         transform: translateX(92px)translateZ(36px) rotateZ(90deg);
+    }
+
+    #catorse-3{
+
+         transform: translateX(92px)translateZ(36px) rotateX(90deg);
+    }
+
+    #quince{
+
+         transform: translateX(92px)translateZ(-36px) rotateY(90deg) ;
+    }
+
+    #quince-2{
+
+         transform: translateX(92px)translateZ(-36px) rotateZ(90deg);
+    }
+
+    #quince-3{
+
+         transform: translateX(92px)translateZ(-36px) rotateX(90deg);
+    }
+
+    #diesiseis{
+
+         transform: translateX(-92px)translateZ(-36px) rotateY(90deg) ;
+    }
+
+    #diesiseis-2{
+
+         transform: translateX(-92px)translateZ(-36px) rotateZ(90deg);
+    }
+
+    #diesiseis-3{
+
+         transform: translateX(-92px)translateZ(-36px) rotateX(90deg);
     }
 
     #ocho{
@@ -439,76 +563,6 @@
     	opacity: 1;
     }
 
-    /*=========================*/
-    /*ESTILOS DE LAS PUBLICACIONES ruta BUY*/
-
-    .publicacion{
-        margin:2px;
-		width:250px;
-		height:230px;
-	}
-
-    .info_buy{
-            text-align:center;
-            border:2px solid black;
-            background:white;
-    }
-
-    .content_buy{
-        padding:10px;
-        width:100%;
-        overflow-x:hidden;
-    }
-
-    .content_buy h2{
-        text-align:center;
-    }
-    #navega li{
-        float:left;
-        display: inline;
-    }
-    #navega ul{
-        list-style-type:none;
-    }
-
-    .publicacion img{
-		width:100%;
-		height:100%;
-        border:1px solid black;
-	}
-
-	.info_buy{
-		width:250px;
-		height:230px;
-		border:2px solid black;
-	}
-
-	.info p{
-		text-align:center;
-		font-size:50%;
-	}
-
-	.info h3{
-		text-align:center;
-		font-size:100%;
-	}
-
-	.publicacion .btn_buy{
-		position:fixed;
-	}
-
-	.contenedor_buy{
-	    visibility:hidden;
-	}
-
-    .slider_public button:active{
-        visibility:visible;
-        background:gray;
-	    width:320px;
-	    height:480px;
-	    float:none;
-    }
-
 
 	/*SECTION DE LA PAGINA PRINCIPAL*/
     /*SLIDER*/
@@ -565,93 +619,6 @@
         height:100%;
     }
 
-    /*sliders para publicaciones*/
-
-    .slider_public{
-        border:2px solid black;
-        width:600px;
-        height:260px;
-        margin:auto;
-        background:gray;
-        overflow-y: scroll;
-        overflow-x:hidden;
-
-    }
-
-    /*ADMIN STYLOS*/
-    .container {
-        display: flex;
-        justify-content:left;
-        align-items: left;
-        background: transparent;
-        height: 100%;
-    }
-
-    .container img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .card {
-        border: 1px solid #333;
-        height: 30rem;
-        width: 20rem;
-        position: relative;
-    }
-
-    .card-footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0;
-        right: 0;
-        text-align: left;
-        padding: 9px;
-        background: #dfe6e9;
-    }
-
-    .card-footer input {
-        text-align: left;
-    }
-     #Admin-form{
-            width:320px;
-            height:480px;
-            top:50%;
-            left:50%;
-            position:absolute;
-            transform:translate(-50%, -50%);
-            box-sizing: border-box;
-            padding:70px 30px;
-            background-color: skyblue;
-            margin-top:5px;
-    }
-     #Admin-form input{
-            width:100%;
-            margin-bottom:20px;
-
-        }
-
-    #Admin-form label{
-        margin:0;
-        padding:0;
-        font-weight:bold;
-        display:block;
-
-    }
-
-    textarea{
-        resize:none;
-        width:100%;
-        font-size:12;
-    }
-
-    article{
-        margin:0;
-        padding:0;
-        background:darkgray;
-    }
     /* Responsive */
 
     @media screen and (max-width: 420px){
@@ -730,4 +697,41 @@
                 background-position:left 400px top 0px;
             }
 
+    }
+
+    /*CREATE STYLES*/
+
+    .contenedor-pulsera{
+        background: #333;
+        display:flex;
+        min-height: 100vh;
+        max-height: 100vh;
+
+    }
+
+    .desing-create{
+        min-width:40%;
+        max-width:40%;
+    }
+
+    .desing-create p{
+        color:white;
+    }
+    .selector{
+        background-color:gray;
+        width:100%;
+        height:60%;
+        float:none;
+    }
+
+    .contenedor-piedra{
+      float:none;
+      width:80%;
+      height:80%;
+      border:1px solid black;
+    }
+
+    .contenedor-piedra{
+        width:100%;
+        height:100%;
     }
