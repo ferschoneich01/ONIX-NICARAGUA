@@ -3,98 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg">
     <title>Buy | Onix Nicaragua</title>
-    <link href="/static/styles.css" rel="stylesheet">
-    <style type="text/css">
-    </style>
+
+    <font face="Berlin Sans FB">
+      <div class="text-light" style="background-color:#30415D">
+        <br>
+        <center><h1>ONIX Nicaragua</h1></center>
+        <br>
+     </div>
+    </font>
+
 </head>
-<body>
-    <header class="content_buy">
-    <main class="contenedor_buy">
-        {% block main %}{% endblock %}
-    </main>
-    <h2>ONIX PAREJAS</h2>
-    <div class="slider_public">
-        <ul id="navega">
-        {%for vista in vista%}
-            <li>
-                <div class="publicacion">
-                    <img src="{{ vista.foto }}">
+<body  style="background-color:#b5afbd">
+
+
+
+    <div class="container" >
+      <br>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs nav-fill " role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active text-dark h5" data-toggle="tab" href="#home">ONIX Parejas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark h5" data-toggle="tab" href="#menu1">ONIX Damas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark h5" data-toggle="tab" href="#menu2">Onix Caballeros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark h5" data-toggle="tab" href="#menu3">Otros</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div id="home" class="container tab-pane active"><br>
+            <div class="row row-cols-1 row-cols-md-3">
+            {% for vista in vista %}
+              <div class="col mb-4">
+                <div class="card">
+                  <img src="{{  vista.foto }}" class="card-img-top img-thumbnail" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{ vista.nombre}}</h5>
+                    <p class="card-text text-center">{{ vista.descripcion }}</p>
+                    <p class="card-text text-center font-weight-bold">C$ {{ vista.precio }}</p>
+                  </div>
+                  <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
+                  </div>
+
                 </div>
-            </li>
-            <li>
-                <div class="info_buy">
-                    <h2>{{ vista.nombre}}</h2>
-                    <p>{{ vista.descripcion}}</p>
-                    <p>C${{ vista.precio}}</p>
-                    <button href="/buy_start" type="submit">Buy</button>
+              </div>
+            {% endfor %}
+
+            </div>
+        </div>
+        <div id="menu1" class="container tab-pane fade"><br>
+
+          <div class="row row-cols-1 row-cols-md-3">
+            {% for damas in damas %}
+              <div class="col mb-4">
+                <div class="card">
+                  <img src="{{  damas.foto }}" class="card-img-top img-thumbnail" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{ damas.nombre}}</h5>
+                    <p class="card-text text-center">{{ damas.descripcion }}</p>
+                    <p class="card-text text-center font-weight-bold">C$ {{ damas.precio }}</p>
+                  </div>
+                  <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
+                  </div>
                 </div>
-            </li>
-        {% endfor %}
-        </ul>
+              </div>
+            {% endfor %}
+            </div>
+
+        </div>
+
+
+
+        <div id="menu2" class="container tab-pane fade"><br>
+         <div class="row row-cols-1 row-cols-md-3">
+            {% for caballero in caballero %}
+              <div class="col mb-4">
+                <div class="card">
+                  <img src="{{  caballero.foto }}" class="card-img-top img-thumbnail img-fluid" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{ caballero.nombre}}</h5>
+                    <p class="card-text text-center">{{ caballero.descripcion }}</p>
+                    <p class="card-text text-center font-weight-bold">C$ {{ caballero.precio }}</p>
+                  </div>
+                  <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div id="menu3" class="container tab-pane fade"><br>
+
+          <div class="row row-cols-1 row-cols-md-3">
+            {% for otros in otros %}
+              <div class="col mb-4">
+                <div class="card">
+                  <img src="{{  otros.foto }}" class="card-img-top img-thumbnail" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{ otros.nombre}}</h5>
+                    <p class="card-text text-center">{{ otros.descripcion }}</p>
+                    <p class="card-text text-center font-weight-bold">C$ {{ otros.precio }}</p>
+                  </div>
+                  <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+
+        </div>
+
+
+      </div>
     </div>
-    <h2>ONIX CABALLEROS</h2>
-    <div class="slider_public">
-        <ul id="navega">
-        {%for caballero in caballero%}
-            <li>
-                <div class="publicacion">
-                    <img src="{{ caballero.foto }}">
-                </div>
-            </li>
-            <li>
-                <div class="info_buy">
-                    <h2>{{ caballero.nombre}}</h2>
-                    <p>{{ caballero.descripcion}}</p>
-                    <p>C${{ caballero.precio}}</p>
-                    <button href="/buy_start" type="submit">Buy</button>
-                </div>
-            </li>
-        {% endfor %}
-        </ul>
-    </div>
-    <h2>ONIX DAMAS</h2>
-     <div class="slider_public">
-        <ul id="navega">
-        {%for damas in damas%}
-            <li>
-                <div class="publicacion">
-                    <img src="{{ damas.foto }}">
-                </div>
-            </li>
-            <li>
-                <div class="info_buy">
-                    <h2>{{ damas.nombre}}</h2>
-                    <p>{{ damas.descripcion}}</p>
-                    <p>C${{ damas.precio}}</p>
-                    <button href="/buy_start" type="submit">Buy</button>
-                </div>
-            </li>
-        {% endfor %}
-        </ul>
-    </div>
-    <h2>¡OTROS!</h2>
-     <div class="slider_public">
-        <ul id="navega">
-        {%for otros in otros%}
-            <li>
-                <div class="publicacion">
-                    <img src="{{ otros.foto }}">
-                </div>
-            </li>
-            <li>
-                <div class="info_buy">
-                    <h2>{{ otros.nombre}}</h2>
-                    <p>{{ otros.descripcion}}</p>
-                    <p>C${{ otros.precio}}</p>
-                    <button href="/buy_start" type="submit">Buy</button>
-                </div>
-            </li>
-        {% endfor %}
-        </ul>
-    </div>
-    </header>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>
