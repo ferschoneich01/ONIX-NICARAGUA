@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <title>Buy | Onix Nicaragua</title>
 
     <font face="Berlin Sans FB">
-      <div class="text-light" style="background:black">
+      <div class="text-light" style="background-color:#30415D">
         <br>
         <center><h3>ONIX NICARAGUA</h3></center>
         <br>
@@ -16,7 +16,7 @@
     </font>
 
 </head>
-<body  style="background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(102,102,102,1) 0%, rgba(28,28,28,1) 0%, rgba(76,76,76,1) 0%, rgba(134,134,134,1) 48%, rgba(158,158,158,1) 68%);">
+<body  style="background-color:#b5afbd">
 
 
 
@@ -52,6 +52,9 @@
                     <p class="card-text text-center font-weight-bold">C$ {{ vista.precio }}</p>
                   </div>
                   <div class="card-footer text-center">
+                    {% if session.user_id == 1 or session.user_id == 6 %}
+                      <button type="submit" class="btn btn-danger text-light">Eliminar</button>
+                    {% endif %}
                     <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
                   </div>
 
@@ -74,6 +77,9 @@
                     <p class="card-text text-center font-weight-bold">C$ {{ damas.precio }}</p>
                   </div>
                   <div class="card-footer text-center">
+                    {% if session.user_id == 1 or session.user_id == 6 %}
+                      <button type="submit" class="btn btn-danger text-light">Eliminar</button>
+                    {% endif %}
                     <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
                   </div>
                 </div>
@@ -97,6 +103,9 @@
                     <p class="card-text text-center font-weight-bold">C$ {{ caballero.precio }}</p>
                   </div>
                   <div class="card-footer text-center">
+                    {% if session.user_id == 1 or session.user_id == 6 %}
+                      <button type="submit" class="btn btn-danger text-light">Eliminar</button>
+                    {% endif %}
                     <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
                   </div>
                 </div>
@@ -118,6 +127,9 @@
                     <p class="card-text text-center font-weight-bold">C$ {{ otros.precio }}</p>
                   </div>
                   <div class="card-footer text-center">
+                    {% if session.user_id == 1 or session.user_id == 6 %}
+                      <button type="submit" class="btn btn-danger text-light">Eliminar</button>
+                    {% endif %}
                     <button type="submit" class="btn btn-muted text-light" style="background-color:#30415D">Comprar</button>
                   </div>
                 </div>
