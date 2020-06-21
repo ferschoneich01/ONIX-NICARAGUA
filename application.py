@@ -147,9 +147,13 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
-@app.route("/buy_start",methods=["GET", "POST"])
-def buy_start():
-    return render_template("buy_start.html")
+@app.route("/eliminar/<descripcion>",methods=["GET","POST"])
+def eliminar(descripcion):
+
+    db.execute("DELETE FROM vista WHERE descripcion = :desc",
+                    desc = descripcion)
+    return redirect("/")
+
 
 #funcion principal
 if __name__ == '__main__':

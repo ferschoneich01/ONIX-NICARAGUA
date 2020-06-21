@@ -428,7 +428,9 @@
 		width:300px;
 		height:auto;
     }
-
+    section h2{
+            font-family:arial;
+    }
     .titulo h1{
             animation: animate 5s linear infinite;
             background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592511125/zhj93myxf9hhjdp754rh.jpg);
@@ -734,4 +736,107 @@
     .contenedor-piedra{
         width:100%;
         height:100%;
+    }
+
+    /*VENTANA MODAL*/
+
+    #show-modal{
+        text-align:center;
+        background:black;
+        padding: 15px 15px;
+        color:white;
+        font-weight:100;
+        font-size:1.5em;
+        border-radius:3.5px;
+        text-decoration:none;
+        transition:all 0.5s linear;
+    }
+
+    #show-modal:hover{
+        cursor:pointer;
+
+    }
+
+    #modal{
+        position:fixed;
+        top:-100vh;
+        left:0;
+        z-index:99999999;
+        background:white;
+        width:100vw;
+        height:100vh;
+        opacity:0;
+        transition:opacity 0.35s ease;
+    }
+
+    .modal .content-modal{
+        width:100%;
+        max-width:500px;
+        position:fixed;
+        left:50%;
+        top:-100vh;
+        transition:top 0.35s ease;
+        margin-left:-250px;
+        background:blue;
+        box-shadow:0 1px 2px rgba(0,0,0,0.1);
+        border-radius:2px;
+        z-index:99999999;
+    }
+
+    .modal h2{
+        padding:0.5em;
+        text-align:center;
+        color:#444444;
+        margin:0;
+    }
+
+    .modal article{
+        height:300px;
+        background:red;
+
+    }
+
+    .close-modal{
+        color:pink;
+        position:absolute;
+        top:0.2em;
+        right:0.375;
+        margin:0;
+        padding:5px;
+        font-weight:bold;
+        font-size:1.5em;
+        text-decoration:none;
+    }
+
+    .modal a:hover{
+        color:green;
+    }
+
+    .modal:target{
+        opacity:1;
+        top:0;
+    }
+
+    .modal .btn-close-modal{
+        position:absolute;
+        left:0;
+        width:100%;
+        height:100%;
+        z-index:99999991;
+
+    }
+
+    .modal:taget .content-modal{
+        top:50px;
+        transition:top 0.35s ease;
+    }
+
+    @media (max-width:796px){
+        .modal .content-modal{
+            width:90%;
+            max-width:none;
+            left:5%;
+            margin-left:0;
+        }
+
     }
