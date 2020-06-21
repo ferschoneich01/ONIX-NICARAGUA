@@ -13,6 +13,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+
 db = SQL("sqlite:///Data.db")
 
 #ruta principal
@@ -103,19 +104,22 @@ def Admin():
         if category == "Parejas":
             db.execute("Insert into vista(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
             ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+            return redirect("/")
 
         elif category == "Caballeros":
             db.execute("Insert into caballero(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
             ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+            return redirect("/")
 
         elif category == "Damas":
             db.execute("Insert into damas(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
             ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
+            return redirect("/")
 
         elif category == "Otros":
             db.execute("Insert into otros(id,nombre,foto,descripcion,precio) values(NULL,:nombre,:foto,:descripcion,:precio)"
             ,nombre=request.form["nombre"],foto=request.form["foto"],descripcion=request.form["descripcion"],precio=request.form["precio"])
-
+            return redirect("/")
     else:
         return render_template("Admin.html")
 
@@ -147,13 +151,22 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
-@app.route("/eliminar/<descripcion>",methods=["GET","POST"])
-def eliminar(descripcion):
+@app.route("/eliminar/<nombre>")
+def eliminar(nombre):
 
-    db.execute("DELETE FROM vista WHERE descripcion = :desc",
-                    desc = descripcion)
+    db.execute("DELETE FROM vista WHERE nombre = :name",
+    name = nombre)
+
+    db.execute("DELETE FROM caballero WHERE nombre = :name",
+    name = nombre)
+
+    db.execute("DELETE FROM damas WHERE nombre = :name",
+    name = nombre)
+
+    db.execute("DELETE FROM otros WHERE nombre = :name",
+    name = nombre)
+
     return redirect("/")
-
 
 #funcion principal
 if __name__ == '__main__':

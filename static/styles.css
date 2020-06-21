@@ -1,4 +1,12 @@
 
+     .contenedor_login{
+            margin:0;
+            padding:0;
+            background:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1592776963/bzaqrczvpac7o9yc1auj.jpg) no-repeat center top;
+            background-size:cover;
+            font-family:sans-serif;
+            height:100vh;
+    }
     #parte1 {
         width:320px;
         height:420px;
