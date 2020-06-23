@@ -68,20 +68,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="/buy" method="POST GET">
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Cantidad:</label>
-                <input autocomplete="off" autofocus class="form-control" name="cantidad" placeholder="cantidad" type="number" min="1" required />
-            </div>
-              <div class="form-group">
-                <div class="form-group">
-                      <label for="exampleFormControlSelect1">Forma de Pago:</label>
-                        <select class="form-control" name="category" id="category">
-                        <option>Efectivo</option>
-                      </select>
-                  </div>
-              </div>
-
+             <h1>CONTACTATE CON NOSOTROS :D</h1>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -126,7 +113,7 @@
                     {% if session.user_id == 1 or session.user_id == 6 %}
                       <a href="/eliminar/{{vista.nombre}}" class="btn btn-danger text-light" style="decoration:none">Eliminar</a>
                     {% endif %}
-                    <button href="/buy/{{vista.nombre}}"type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Comprar</button>
+                    <button href="/buy"type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Comprar</button>
                   </div>
 
                 </div>

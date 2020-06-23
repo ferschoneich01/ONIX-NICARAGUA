@@ -174,7 +174,7 @@ def buy():
 @app.route("/compras",methods=["GET", "POST"])
 @login_required
 def compras():
-    rows=db.execute("select * from Pulseras")   
+    rows=db.execute("select * from Pulseras")
     return render_template("compras.html",Pulseras=rows)
 
 @app.route("/perfil", methods=["GET", "POST"])
