@@ -16,6 +16,20 @@ Session(app)
 
 db = SQL("sqlite:///Data.db")
 
+def apology(message, code=400):
+    """Render message as an apology to user."""
+    def escape(s):
+        """
+        Escape special characters.
+
+        https://github.com/jacebrowning/memegen#special-characters
+        """
+        for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
+                         ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
+            s = s.replace(old, new)
+        return s
+    return render_template("apology.html", top=code, bottom=escape(message)), code
+
 #ruta principal
 @app.route("/")
 def home():
@@ -33,13 +47,11 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            flash("must provide username")
-            return redirect("/login")
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            flash("must provide password")
-            return redirect("/login")
+            return apology("must provide password", 400)
 
         # Query database for username
         rows = db.execute("SELECT * FROM Users WHERE username = :username",
@@ -47,7 +59,7 @@ def login():
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["password"], request.form.get("password")):
-            flash("invalid username and/or password")
+            return apology("invalid username and/or password", 400)
 
 
 
@@ -66,28 +78,22 @@ def register():
     # si el usuario alcanzó la ruta a través de POST
     if request.method == "POST":
         if not request.form.get("username"):
-            flash("ingrese un usuario")
-            return redirect("/register")
+            return apology("Ingrese un usuario", 400)
 
         elif not request.form.get("correo") and not request.form.get("cel"):
-            flash("ingrese correo o cel")
-            return redirect("/register")
+            return apology("Ingrese correo y/o cel", 400)
 
         elif not request.form.get("direccion"):
-            flash("ingrese direccion")
-            return redirect("/register")
+            return apology("Ingrese direccion", 400)
 
         elif not request.form.get("password"):
-            flash("ingrese la contraseña")
-            return redirect("/register")
+            return apology("ingrese la contraseña", 400)
 
         elif not request.form.get("vpass"):
-            flash("las contraseñas no coinciden :(")
-            return redirect("/register")
+            return apology("Ingrese la confirmación de contraseña")
 
         elif request.form.get("password") != request.form.get("vpass"):
-            flash("las contraseñas no coinciden :(")
-            return redirect("/register")
+            return apology("Las contraseña y la confimarción no coinciden :(", 400)
 
         response = db.execute("INSERT INTO Users (username, correo, cel, direccion, password) \
                             VALUES(:username, :correo, :cel, :direccion, :password)",
@@ -98,8 +104,7 @@ def register():
                             password = generate_password_hash(request.form.get("password")))
 
         if not response:
-            flash("el usuario ya existe :(")
-            return redirect("/register")
+            return apology("el usuario ya existe :(", 400)
 
         rows = db.execute("SELECT * FROM users WHERE username = :username", username = request.form.get("username"))
 
@@ -161,7 +166,99 @@ def compras():
 @app.route("/perfil", methods=["GET", "POST"])
 @login_required
 def perfil():
+
     return render_template("perfil.html")
+
+@app.route("/contraseña", methods=["GET", "POST"])
+@login_required
+def contraseña():
+    if request.method == "POST":
+
+        rows = db.execute("SELECT password FROM Users WHERE id = :user_id", user_id=session["user_id"])
+
+        if not request.form.get("newPass"):
+            return apology("must provide new password", 400)
+
+        elif not request.form.get("confimPass"):
+            return apology("must provide new password confirmation", 400)
+
+        elif request.form.get("newPass") != request.form.get("confimPass"):
+            return apology("new password and confirmation must match", 400)
+
+        password = request.form.get("newPass")
+        rows = db.execute("UPDATE Users SET password = :password WHERE id = :user_id", user_id=session["user_id"], password=password)
+
+
+    return render_template("contraseña.html")
+
+
+
+
+@app.route("/telefono", methods=["GET", "POST"])
+@login_required
+def telefono():
+
+    if request.method == "POST":
+
+        rows = db.execute("SELECT cel FROM Users WHERE id = :user_id", user_id=session["user_id"])
+
+        if not request.form.get("newCel"):
+            return apology("must provide new Cellphone", 400)
+
+        elif not request.form.get("confimCel"):
+            return apology("must provide new Cellphone confirmation", 400)
+
+        elif request.form.get("newCel") != request.form.get("confimCel"):
+            return apology("new cellphone and confirmation must match", 400)
+
+        cel = request.form.get("newCel")
+        rows = db.execute("UPDATE Users SET cel = :cel WHERE id = :user_id", user_id=session["user_id"], cel=cel)
+
+    return render_template("telefono.html")
+
+@app.route("/correo", methods=["GET", "POST"])
+@login_required
+def correo():
+
+    if request.method == "POST":
+
+        rows = db.execute("SELECT correo FROM Users WHERE id = :user_id", user_id=session["user_id"])
+
+        if not request.form.get("newCorreo"):
+            return apology("must provide new Email", 400)
+
+        elif not request.form.get("confimCorreo"):
+            return apology("must provide new Email confirmation", 400)
+
+        elif request.form.get("newCorreo") != request.form.get("confimCorreo"):
+            return apology("new email and confirmation must match", 400)
+
+        correo = request.form.get("newCorreo")
+        rows = db.execute("UPDATE Users SET  correo = :correo WHERE id = :user_id", user_id=session["user_id"], correo=correo)
+
+    return render_template("correo.html")
+
+@app.route("/direccion", methods=["GET", "POST"])
+@login_required
+def direccion():
+
+    if request.method == "POST":
+
+        rows = db.execute("SELECT direccion FROM Users WHERE id = :user_id", user_id=session["user_id"])
+
+        if not request.form.get("newDir"):
+            return apology("must provide new Address", 400)
+
+        elif not request.form.get("confimDir"):
+            return apology("must provide new Address confirmation", 400)
+
+        elif request.form.get("newDir") != request.form.get("confimDir"):
+            return apology("new Address and confirmation must match", 400)
+
+        direccion = request.form.get("newDir")
+        rows = db.execute("UPDATE Users SET  direccion = :direccion WHERE id = :user_id", user_id=session["user_id"], direccion=direccion)
+
+    return render_template("direccion.html")
 
 # Cerrar sesion
 @app.route("/logout")
