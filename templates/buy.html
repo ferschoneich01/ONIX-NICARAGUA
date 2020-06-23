@@ -68,7 +68,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="/comprar">
+            <form action="/buy" method="POST GET">
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Cantidad:</label>
                 <input autocomplete="off" autofocus class="form-control" name="cantidad" placeholder="cantidad" type="number" min="1" required />
@@ -81,11 +81,12 @@
                       </select>
                   </div>
               </div>
-            </form>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add to Car</button>
+            <button href="/buy" class="btn btn-danger text-light" type ="submit">Add to Car</button>
+          </form>
           </div>
         </div>
       </div>
@@ -125,7 +126,7 @@
                     {% if session.user_id == 1 or session.user_id == 6 %}
                       <a href="/eliminar/{{vista.nombre}}" class="btn btn-danger text-light" style="decoration:none">Eliminar</a>
                     {% endif %}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Comprar</button>
+                    <button href="/buy/{{vista.nombre}}"type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Comprar</button>
                   </div>
 
                 </div>

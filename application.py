@@ -147,16 +147,30 @@ def personalizada():
 @app.route("/buy",methods=["GET", "POST"])
 @login_required
 def buy():
-    rows=db.execute("select * from vista")
-    filas=db.execute("select * from caballero")
-    casillas=db.execute("select * from damas")
-    celdas=db.execute("select * from otros")
-    return render_template("buy.html",vista=rows,caballero=filas,damas=casillas,otros=celdas)
+    if request.method == "POST":
+        nom = request.form.get("nombre")
+        dir = "Managua"
+        desc = request.form.get("descripcion")
+        prec = request.form.get("precio")
+        cant = request.form.get("cantidad")
+
+        db.execute("Insert into Pulseras(nombre,descripcion,direccion,precio,cantidad) values(:nombre,:descripcion, :direccion,:precio, :cantidad)",
+        nombre=nom, descripcion = desc,direccion=dir,precio=prec,cantidad=cant)
+
+        return redirect("/compras")
+    else:
+        rows=db.execute("select * from vista")
+        filas=db.execute("select * from caballero")
+        casillas=db.execute("select * from damas")
+        celdas=db.execute("select * from otros")
+
+        return render_template("buy.html",vista=rows,caballero=filas,damas=casillas,otros=celdas)
 
 @app.route("/compras",methods=["GET", "POST"])
 @login_required
 def compras():
-    return render_template("compras.html")
+    rows=db.execute("select * from Pulseras")   
+    return render_template("compras.html",Pulseras=rows)
 
 @app.route("/perfil", methods=["GET", "POST"])
 @login_required
