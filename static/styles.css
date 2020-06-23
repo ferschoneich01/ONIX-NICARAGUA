@@ -137,6 +137,10 @@
         animation: girar 5s infinite ;
         border-radius:50%;
     }
+    .imgw{
+        margin:5px;
+    }
+
     .back-piedra{
         background-image:url(https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591298552/wnmalvqtpylwz8scsa6j.jpg);
     }
@@ -722,29 +726,56 @@
     .desing-create{
         min-width:40%;
         max-width:40%;
+        font-family:arial;
+        text-align:center;
+        text-decoration:none;
+        padding:10px;
     }
 
     .desing-create p{
         color:white;
+        font-family:arial;
+        font-size:15px;
     }
     .selector{
-        background-color:gray;
-        width:100%;
-        height:60%;
-        float:none;
+        background-color:white;
+        width:95%;
+        height:70%;
+        padding:5px;
     }
 
     .contenedor-piedra{
-      float:none;
-      width:80%;
-      height:80%;
-      border:1px solid black;
+        position: static;
+        width:60px;
+        height:60px;
+        border:1px solid black;
+        float: initial;
     }
 
-    .contenedor-piedra{
+    .content-piedra{
+        position:static;
+        background:darkgray;
+        width:50%;
+        height:100%;
+        float:left;
+    }
+    .content-dije{
+        position:static;
+        background: lightgray;
+        width:50%;
+        height:100%;
+        float:right;
+    }
+
+    .contenedor-piedra img:hover{
+        border:1px solid white;
+    }
+
+    .contenedor-piedra img{
         width:100%;
         height:100%;
     }
+
 
     /*VENTANA MODAL*/
 
