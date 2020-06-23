@@ -34,10 +34,12 @@ def login():
         # Ensure username was submitted
         if not request.form.get("username"):
             flash("must provide username")
+            return redirect("/login")
 
         # Ensure password was submitted
         elif not request.form.get("password"):
             flash("must provide password")
+            return redirect("/login")
 
         # Query database for username
         rows = db.execute("SELECT * FROM Users WHERE username = :username",
@@ -46,6 +48,8 @@ def login():
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["password"], request.form.get("password")):
             flash("invalid username and/or password")
+
+
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -63,28 +67,39 @@ def register():
     if request.method == "POST":
         if not request.form.get("username"):
             flash("ingrese un usuario")
-            return render_template("register.html")
+            return redirect("/register")
+
+        elif not request.form.get("correo") and not request.form.get("cel"):
+            flash("ingrese correo o cel")
+            return redirect("/register")
+
+        elif not request.form.get("direccion"):
+            flash("ingrese direccion")
+            return redirect("/register")
 
         elif not request.form.get("password"):
             flash("ingrese la contraseña")
-            return render_template("register.html")
+            return redirect("/register")
 
         elif not request.form.get("vpass"):
             flash("las contraseñas no coinciden :(")
-            return render_template("register.html")
+            return redirect("/register")
 
         elif request.form.get("password") != request.form.get("vpass"):
             flash("las contraseñas no coinciden :(")
-            return render_template("register.html")
+            return redirect("/register")
 
-        response = db.execute("INSERT INTO Users (username, password) \
-                            VALUES(:username, :password)",
+        response = db.execute("INSERT INTO Users (username, correo, cel, direccion, password) \
+                            VALUES(:username, :correo, :cel, :direccion, :password)",
                             username = request.form.get("username"),
+                            correo = request.form.get("correo"),
+                            cel = request.form.get("cel"),
+                            direccion = request.form.get("direccion"),
                             password = generate_password_hash(request.form.get("password")))
 
         if not response:
             flash("el usuario ya existe :(")
-            return render_template("register.html")
+            return redirect("/register")
 
         rows = db.execute("SELECT * FROM users WHERE username = :username", username = request.form.get("username"))
 

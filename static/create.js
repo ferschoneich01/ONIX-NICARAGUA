@@ -43,6 +43,73 @@
         var diesiseis = document.getElementById("diesiseis");
         var diesiseis_2 = document.getElementById("diesiseis-2");
         var diesiseis_3 = document.getElementById("diesiseis-3");
+        var x = false;
+
+    document.getElementById("blanco").onclick = func;
+    document.getElementById("negro").onclick = fun;
+    document.getElementById("celeste").onclick = fu;
+    document.getElementById("rojo").onclick = f;
+
+    function f(){
+        console.log("rojo");
+
+        var b = document.getElementById("blanco");
+        var r = document.getElementById("rojo");
+        var c = document.getElementById("celeste");
+        var n = document.getElementById("negro");
+        b.removeEventListener("click",blanco,true);
+        n.removeEventListener("click",negro,true);
+        c.removeEventListener("click",celeste,true);
+
+        r.addEventListener("click",rojo,false);
+
+    }
+
+    function fu(){
+        console.log("celeste");
+
+        var b = document.getElementById("blanco");
+        var r = document.getElementById("rojo");
+        var c = document.getElementById("celeste");
+        var n = document.getElementById("negro");
+        r.removeEventListener("click",rojo,true);
+        n.removeEventListener("click",negro,true);
+        b.removeEventListener("click",blanco,true);
+
+        c.addEventListener("click",celeste,false);
+
+    }
+
+    function fun(){
+        console.log("negro");
+
+        var b = document.getElementById("blanco");
+        var r = document.getElementById("rojo");
+        var c = document.getElementById("celeste");
+        var n = document.getElementById("negro");
+        r.removeEventListener("click",rojo,true);
+        b.removeEventListener("click",blanco,true);
+        c.removeEventListener("click",celeste,true);
+
+        n.addEventListener("click",negro,false);
+
+    }
+
+    function func(){
+        console.log("blanco");
+
+        var b = document.getElementById("blanco");
+        var r = document.getElementById("rojo");
+        var c = document.getElementById("celeste");
+        var n = document.getElementById("negro");
+        r.removeEventListener("click",rojo,true);
+        n.removeEventListener("click",negro,true);
+        c.removeEventListener("click",celeste,true);
+
+        b.addEventListener("click",blanco,false);
+
+    }
+
 
     function blanco(){
         uno.classList.add("back-blanca");
@@ -90,6 +157,7 @@
         diesiseis.classList.add("back-blanca");
         diesiseis_2.classList.add("back-blanca");
         diesiseis_3.classList.add("back-blanca");
+
     }
 
     function rojo(){
@@ -99,7 +167,7 @@
         dos.classList.add("back-rojo");
         dos_2.classList.add("back-rojo");
         dos_3.classList.add("back-rojo");
-        tres.classList.add("back-blanca");
+        tres.classList.add("back-rojo");
         tres_2.classList.add("back-rojo");
         tres_3.classList.add("back-rojo");
         cuatro.classList.add("back-rojo");
@@ -138,4 +206,103 @@
         diesiseis.classList.add("back-rojo");
         diesiseis_2.classList.add("back-rojo");
         diesiseis_3.classList.add("back-rojo");
+
+    }
+
+    function celeste(){
+        uno.classList.add("back-celeste");
+        uno_2.classList.add("back-celeste");
+        uno_3.classList.add("back-celeste");
+        dos.classList.add("back-celeste");
+        dos_2.classList.add("back-celeste");
+        dos_3.classList.add("back-celeste");
+        tres.classList.add("back-celeste");
+        tres_2.classList.add("back-celeste");
+        tres_3.classList.add("back-celeste");
+        cuatro.classList.add("back-celeste");
+        cuatro_2.classList.add("back-celeste");
+        cuatro_3.classList.add("back-celeste");
+        cinco.classList.add("back-celeste");
+        cinco_2.classList.add("back-celeste");
+        cinco_3.classList.add("back-celeste");
+        seis.classList.add("back-celeste");
+        seis_2.classList.add("back-celeste");
+        seis_3.classList.add("back-celeste");
+        siete.classList.add("back-celeste");
+        siete_2.classList.add("back-celeste");
+        siete_3.classList.add("back-celeste");
+        nueve.classList.add("back-celeste");
+        nueve_2.classList.add("back-celeste");
+        nueve_3.classList.add("back-celeste");
+        dies.classList.add("back-celeste");
+        dies_2.classList.add("back-celeste");
+        dies_3.classList.add("back-celeste");
+        once.classList.add("back-celeste");
+        once_2.classList.add("back-celeste");
+        once_3.classList.add("back-celeste");
+        doce.classList.add("back-celeste");
+        doce_2.classList.add("back-celeste");
+        doce_3.classList.add("back-celeste");
+        trese.classList.add("back-celeste");
+        trese_2.classList.add("back-celeste");
+        trese_3.classList.add("back-celeste");
+        catorse.classList.add("back-celeste");
+        catorse_2.classList.add("back-celeste");
+        catorse_3.classList.add("back-celeste");
+        quince.classList.add("back-celeste");
+        quince_2.classList.add("back-celeste");
+        quince_3.classList.add("back-celeste");
+        diesiseis.classList.add("back-celeste");
+        diesiseis_2.classList.add("back-celeste");
+        diesiseis_3.classList.add("back-celeste");
+
+    }
+
+    function negro(){
+        uno.classList.add("back-piedra");
+        uno_2.classList.add("back-piedra");
+        uno_3.classList.add("back-piedra");
+        dos.classList.add("back-piedra");
+        dos_2.classList.add("back-piedra");
+        dos_3.classList.add("back-piedra");
+        tres.classList.add("back-piedra");
+        tres_2.classList.add("back-piedra");
+        tres_3.classList.add("back-piedra");
+        cuatro.classList.add("back-piedra");
+        cuatro_2.classList.add("back-piedra");
+        cuatro_3.classList.add("back-piedra");
+        cinco.classList.add("back-piedra");
+        cinco_2.classList.add("back-piedra");
+        cinco_3.classList.add("back-piedra");
+        seis.classList.add("back-piedra");
+        seis_2.classList.add("back-piedra");
+        seis_3.classList.add("back-piedra");
+        siete.classList.add("back-piedra");
+        siete_2.classList.add("back-piedra");
+        siete_3.classList.add("back-piedra");
+        nueve.classList.add("back-piedra");
+        nueve_2.classList.add("back-piedra");
+        nueve_3.classList.add("back-piedra");
+        dies.classList.add("back-piedra");
+        dies_2.classList.add("back-piedra");
+        dies_3.classList.add("back-piedra");
+        once.classList.add("back-piedra");
+        once_2.classList.add("back-piedra");
+        once_3.classList.add("back-piedra");
+        doce.classList.add("back-piedra");
+        doce_2.classList.add("back-piedra");
+        doce_3.classList.add("back-piedra");
+        trese.classList.add("back-piedra");
+        trese_2.classList.add("back-piedra");
+        trese_3.classList.add("back-piedra");
+        catorse.classList.add("back-piedra");
+        catorse_2.classList.add("back-piedra");
+        catorse_3.classList.add("back-piedra");
+        quince.classList.add("back-piedra");
+        quince_2.classList.add("back-piedra");
+        quince_3.classList.add("back-piedra");
+        diesiseis.classList.add("back-piedra");
+        diesiseis_2.classList.add("back-piedra");
+        diesiseis_3.classList.add("back-piedra");
+
     }
