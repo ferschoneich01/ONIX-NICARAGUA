@@ -158,6 +158,11 @@ def buy():
 def compras():
     return render_template("compras.html")
 
+@app.route("/perfil", methods=["GET", "POST"])
+@login_required
+def perfil():
+    return render_template("perfil.html")
+
 # Cerrar sesion
 @app.route("/logout")
 def logout():

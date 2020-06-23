@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link href="/static/styles.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg">
     <title>ONIX NICARAGUA</title>
@@ -10,34 +11,13 @@
 <body>
 
 	<style>
-	.navbar{
-		background-color: #EEAA7B;
-	}
 
-	.contenedor{
-	    position: relative;
-	    display: inline-block;
-	    text-align: center;
-	}
-
-	.titulo{
-		position: absolute;
-		left:50%;
-	    top: 20%;
-	    transform: translate(-50%, -50%);
-	}
-	.centrado{
-	    position: absolute;
-		left:50%;
-	    top: 35%;
-	    transform: translate(-50%, -50%);
-	}
 
 	</style>
 
                                           <!-- Inicio del navbar -->
 
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top rounded-bottom">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top rounded-bottom" style="background-color: #EEAA7B;">
 	  <a class="navbar-brand" href="/">
 		  <img src="/static/logo.png" width="50" height="50" alt="">
 		</a>
@@ -68,7 +48,7 @@
 			{% if session.user_id %}
 		  <ul class="navbar-nav ml-auto">
 		    <li class="nav-item">
-	        <a class="nav-link h5 text-light" href="/">Perfil</a>
+	        <a class="nav-link h5 text-light" href="/perfil">Editar Perfil</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link h5 text-light" href="/logout">Cerrar Sesión</a>
@@ -94,9 +74,9 @@
                                 <!-- Inicio de la imagen recursive con texto sobre ella -->
 
   <center>
-  	<div class="contenedor">
+  	<div class="cont">
   	  <img src="/static/principal2.jpg" class="img-fluid rounded"/>
-  	  <div class="titulo text-light" style="font-size:4vw">ONIX NICARAGUA</div>
+  	  <div class="tittle text-light" style="font-size:4vw">ONIX NICARAGUA</div>
   	  <div class="centrado text-light" style="font-size:3vw">No me distraigo fácilmente... ¡Hey mira una Onix!</div>
   	</div>
   </center>
