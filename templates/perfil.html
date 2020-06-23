@@ -54,137 +54,25 @@
 		                                          <!-- Fin del navbar -->
                                           		    <br><br><br><br>
 
-                                              		    <!-- Nav tabs -->
-      <ul class="nav nav-tabs nav-fill container" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active text-dark h5" data-toggle="tab" href="#home">Cambiar Contraseña</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark h5" data-toggle="tab" href="#menu1">Cambiar Correo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark h5" data-toggle="tab" href="#menu2">Cambiar Número Telefónico</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark h5" data-toggle="tab" href="#menu3">Cambiar Dirección</a>
-        </li>
-      </ul>
 
-
-
-        <div class="tab-content">
-        <div id="home" class="container tab-pane active"><br>
-            <div class="row row-cols-1 row-cols-md-3">
-
-            <div class="container">
-                <div class="row">
-                  <div class="col-sm-12">
+<div class="col-sm-12">
                     <div class="card">
                       <div class="card-body">
-                        <h5 class="card-title text-center">Editar Perfil</h5>
+                        <h4 class="card-title text-center">Editar Perfil</h4>
                         <div class="carf-text">
                             <form>
-                              <div class="form-group">
-                                <center><label for="changePassword">Cambiar Contraseña</label></center>
-                                <input autocomplete="off" id="contraseñaActual" autofocus class="form-control" name="contraseñaActual" placeholder="Contraseña Actual" type="password" required/> <br>
-                                <input autocomplete="off" id="contraseñaNueva" autofocus class="form-control" name="contraseñaNueva" placeholder="Contraseña Nueva" type="password" required/> <br>
-                                <input autocomplete="off" id="contraseñaConfirma" autofocus class="form-control" name="contraseñaConfirma" placeholder="Confirmar Contraseña Nueva" type="password" required/> <br>
-                              </div>
-                              <center><button id="cambiarContraseña" type="submit" class="btn btn-primary">Cambiar</button></center>
+                              <center>
+                                <a href="/contraseña" class="btn btn-primary">Cambiar Contraseña</a>
+                                <a href="/correo" class="btn btn-primary">Cambiar Correo</a>
+                                <a href="/telefono" class="btn btn-primary">Cambiar Número Telefónico</a>
+                                <a href="/direccion" class="btn btn-primary">Cambiar Dirección</a>
+                              </center>
+
                             </form>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div id="menu1" class="container tab-pane fade"><br>
-            <div class="row row-cols-1 row-cols-md-3">
-
-            <div class="container">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title text-center">Editar Perfil</h5>
-                        <div class="carf-text">
-                            <form>
-                              <div class="form-group">
-                                <center><label for="changePassword">Cambiar Correo</label></center>
-                                <input autocomplete="off" id="correoActual" autofocus class="form-control" name="correoActual" placeholder="Correo Actual" type="email" required/> <br>
-                                <input autocomplete="off" id="correoNueva" autofocus class="form-control" name="correoNueva" placeholder="Correo Nuevo" type="email" required/> <br>
-                                <input autocomplete="off" id="correoConfirma" autofocus class="form-control" name="correoConfirma" placeholder="Confirmar Correo Nuevo" type="email" required/> <br>
-                              </div>
-                              <center><button id="cambiarCorreo" type="submit" class="btn btn-primary">Cambiar</button></center>
-                            </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div id="menu2" class="container tab-pane fade"><br>
-            <div class="row row-cols-1 row-cols-md-3">
-
-            <div class="container">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title text-center">Editar Perfil</h5>
-                        <div class="carf-text">
-                            <form>
-                              <div class="form-group">
-                                <center><label for="changePassword">Cambiar Número Telefónico</label></center>
-                                <input autocomplete="off" id="celActual" autofocus class="form-control" name="celActual" placeholder="Número Actual" type="number" required/> <br>
-                                <input autocomplete="off" id="celNueva" autofocus class="form-control" name="celNueva" placeholder="Número Nuevo" type="number" required/> <br>
-                                <input autocomplete="off" id="celConfirma" autofocus class="form-control" name="celConfirma" placeholder="Confirmar Número Nuevo" type="number" required/> <br>
-                              </div>
-                              <center><button id="cambiarCel" type="submit" class="btn btn-primary">Cambiar</button></center>
-                            </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div id="menu3" class="container tab-pane fade"><br>
-            <div class="row row-cols-1 row-cols-md-3">
-
-            <div class="container">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title text-center">Editar Perfil</h5>
-                        <div class="carf-text">
-                            <form>
-                              <div class="form-group">
-                                <center><label for="changePassword">Cambiar Dirección</label></center>
-                                <textarea class="form-control" name= "dirNueva" placeholder="Dirección Nueva" type="text" id="dirNueva" rows="3" required></textarea> <br>
-                                <textarea class="form-control" name= "dirConfirma" placeholder="Confirme Dirección Nueva" type="text" id="dirNueva" rows="3" required></textarea> <br>
-                              </div>
-                              <center><button id="cambiarDir" type="submit" class="btn btn-primary">Cambiar</button></center>
-                            </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-
 
 
 <br><br><br><br>
