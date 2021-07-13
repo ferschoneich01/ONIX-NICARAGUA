@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dzlbg8ni6/image/upload/v1591566067/h73wqoazbdbe7nod0ghu.jpg">
+    <title>Editar Perfil | Onix Nicaragua</title>
+
+</head>
+
+<body style="background-color:#f6f1de">
+    <!-- Inicio del navbar -->
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top rounded-bottom" style="background-color: #30415D;">
+	  <a class="navbar-brand" href="/">
+		  <img src="/static/logo.png" width="50" height="50" alt="">
+		</a>
+
+		<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler bg-light" data-target="#navbar" data-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+		<div class="collapse navbar-collapse" id="navbar">
+		  <ul class="navbar-nav mr-auto">
+		    <li class="nav-item">
+		      <a class="nav-link h5 text-light" href="/">Inicio</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link h5 text-light" href="/buy">Comprar</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link h5 text-light" href="/personalizada">Crear</a>
+		    </li>
+
+		       {% if session.user_id == 1 or session.user_id == 6 %}
+	      <li class="nav-item">
+	        <a class="nav-link h5 text-light" href="/Admin">Publicar</a>
+	      </li>
+		      {% endif %}
+		  </ul>
+
+		  <ul class="navbar-nav ml-auto">
+		    <li class="nav-item">
+	        <a class="nav-link h5 text-light" href="/">Editar Perfil</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link h5 text-light" href="/logout">Cerrar Sesión</a>
+	      </li>
+		  </ul>
+
+	</nav>
+
+		                                          <!-- Fin del navbar -->
+                                          		    <br><br><br><br>
+        <center>
+        <div class="container">
+
+          <div class="col-sm-4">
+            <div class="card">
+            <span class="border-0 rounded">
+             <h5 class="card-header text-center text-light" style="background-color:#0a868e">Número Telefónico</h5>
+              <div class="card-body">
+                  <form method="POST">
+                      <div class="form-group">
+                        <label for="nombre">Contraseña Nueva:</label>
+                        <input type="password" class="form-control" id="newPass" name="newPass" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="nombre">Confirmar Contraseña Nueva:</label>
+                        <input type="password" class="form-control" id="confimPass" name="confimPass" required>
+                      </div>
+
+                      <center> <button type="submit" class="btn btn-muted text-light" style="background-color:#0a868e">Cambiar</button></center>
+              </form>
+              </div>
+              </span>
+            </div>
+        </div>
+
+
+    </div>
+    </center>
+
+<br><br><br><br>
+
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
